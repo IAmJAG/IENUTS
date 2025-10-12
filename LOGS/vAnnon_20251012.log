@@ -1,0 +1,1182 @@
+[20251012][DEBUG   ][00002944]  Logger config loaded VANNON
+[20251012][DEBUG   ][00002944]  Configure taskbar icon
+[20251012][DEBUG   ][00002944]  Starting vAnnon...
+[20251012][DEBUG   ][00002944]  Loading resources...
+[20251012][DEBUG   ][00002944]  Font loaded: Lobster
+[20251012][DEBUG   ][00002944]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00002944]  Font loaded: Roboto
+[20251012][DEBUG   ][00002944]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00002944]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00002944]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00002944]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00002944]  applied styles from base
+[20251012][INFO    ][00002944]  main from vannon.main
+[20251012][INFO    ][00002944]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00002944]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00002944]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00002944]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00002944]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00002944]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00002944]  Setting IsInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00002944]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00002944]  Setting IsUIInitialized to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00002944]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  Setting IsLoaded to True
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00002944]  main from vannon.main
+[20251012][INFO    ][00002944]  Saving configuration...
+[20251012][DEBUG   ][00005464]  Logger config loaded VANNON
+[20251012][DEBUG   ][00005464]  Configure taskbar icon
+[20251012][DEBUG   ][00005464]  Starting vAnnon...
+[20251012][DEBUG   ][00005464]  Loading resources...
+[20251012][DEBUG   ][00005464]  Font loaded: Lobster
+[20251012][DEBUG   ][00005464]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00005464]  Font loaded: Roboto
+[20251012][DEBUG   ][00005464]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00005464]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00005464]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00005464]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00005464]  applied styles from base
+[20251012][INFO    ][00005464]  main from vannon.main
+[20251012][INFO    ][00005464]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00005464]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00005464]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00005464]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00005464]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00005464]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00005464]  Setting IsInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00005464]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00005464]  Setting IsUIInitialized to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00005464]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  Setting IsLoaded to True
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00005464]  main from vannon.main
+[20251012][DEBUG   ][00005464]  applied styles from base.qss
+[20251012][DEBUG   ][00005464]  applied styles from base.qss
+[20251012][INFO    ][00005464]  Saving configuration...
+[20251012][DEBUG   ][00022988]  Logger config loaded VANNON
+[20251012][DEBUG   ][00022988]  Configure taskbar icon
+[20251012][DEBUG   ][00022988]  Starting vAnnon...
+[20251012][DEBUG   ][00022988]  Loading resources...
+[20251012][DEBUG   ][00022988]  Font loaded: Lobster
+[20251012][DEBUG   ][00022988]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00022988]  Font loaded: Roboto
+[20251012][DEBUG   ][00022988]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00022988]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00022988]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00022988]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00022988]  applied styles from base
+[20251012][INFO    ][00022988]  main from vannon.main
+[20251012][INFO    ][00022988]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00022988]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00022988]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00022988]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00022988]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00022988]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00022988]  Setting IsInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00022988]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00022988]  Setting IsUIInitialized to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00022988]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  Setting IsLoaded to True
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00022988]  main from vannon.main
+[20251012][INFO    ][00022988]  Saving configuration...
+[20251012][DEBUG   ][00015700]  Logger config loaded VANNON
+[20251012][DEBUG   ][00015700]  Configure taskbar icon
+[20251012][DEBUG   ][00015700]  Starting vAnnon...
+[20251012][DEBUG   ][00015700]  Loading resources...
+[20251012][DEBUG   ][00015700]  Font loaded: Lobster
+[20251012][DEBUG   ][00015700]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00015700]  Font loaded: Roboto
+[20251012][DEBUG   ][00015700]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00015700]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00015700]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00015700]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00015700]  applied styles from base
+[20251012][INFO    ][00015700]  main from vannon.main
+[20251012][INFO    ][00015700]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00015700]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00015700]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00015700]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00015700]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00015700]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00015700]  Setting IsInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00015700]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00015700]  Setting IsUIInitialized to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00015700]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  Setting IsLoaded to True
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00015700]  main from vannon.main
+[20251012][INFO    ][00015700]  Saving configuration...
+[20251012][DEBUG   ][00012920]  Logger config loaded VANNON
+[20251012][DEBUG   ][00012920]  Configure taskbar icon
+[20251012][DEBUG   ][00012920]  Starting vAnnon...
+[20251012][DEBUG   ][00012920]  Loading resources...
+[20251012][DEBUG   ][00012920]  Font loaded: Lobster
+[20251012][DEBUG   ][00012920]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00012920]  Font loaded: Roboto
+[20251012][DEBUG   ][00012920]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00012920]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00012920]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00012920]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00012920]  applied styles from base
+[20251012][INFO    ][00012920]  main from vannon.main
+[20251012][INFO    ][00012920]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00012920]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00012920]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00012920]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00012920]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00012920]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00012920]  Setting IsInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00012920]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00012920]  Setting IsUIInitialized to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00012920]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  Setting IsLoaded to True
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00012920]  main from vannon.main
+[20251012][INFO    ][00012920]  Saving configuration...
+[20251012][DEBUG   ][00026136]  Logger config loaded VANNON
+[20251012][DEBUG   ][00026136]  Configure taskbar icon
+[20251012][DEBUG   ][00026136]  Starting vAnnon...
+[20251012][DEBUG   ][00026136]  Loading resources...
+[20251012][DEBUG   ][00026136]  Font loaded: Lobster
+[20251012][DEBUG   ][00026136]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00026136]  Font loaded: Roboto
+[20251012][DEBUG   ][00026136]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00026136]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00026136]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00026136]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00026136]  applied styles from base
+[20251012][INFO    ][00026136]  main from vannon.main
+[20251012][INFO    ][00026136]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00026136]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00026136]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00026136]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00026136]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00026136]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00026136]  Setting IsInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00026136]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00026136]  Setting IsUIInitialized to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00026136]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  Setting IsLoaded to True
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00026136]  main from vannon.main
+[20251012][INFO    ][00026136]  Saving configuration...
+[20251012][DEBUG   ][00025352]  Logger config loaded VANNON
+[20251012][DEBUG   ][00025352]  Configure taskbar icon
+[20251012][DEBUG   ][00025352]  Starting vAnnon...
+[20251012][DEBUG   ][00025352]  Loading resources...
+[20251012][DEBUG   ][00025352]  Font loaded: Lobster
+[20251012][DEBUG   ][00025352]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00025352]  Font loaded: Roboto
+[20251012][DEBUG   ][00025352]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00025352]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00025352]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00025352]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00025352]  applied styles from base
+[20251012][INFO    ][00025352]  main from vannon.main
+[20251012][INFO    ][00025352]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00025352]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00025352]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00025352]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00025352]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00025352]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00025352]  Setting IsInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00025352]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00025352]  Setting IsUIInitialized to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00025352]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  Setting IsLoaded to True
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00025352]  main from vannon.main
+[20251012][INFO    ][00025352]  Saving configuration...
+[20251012][DEBUG   ][00017600]  Logger config loaded VANNON
+[20251012][DEBUG   ][00017600]  Configure taskbar icon
+[20251012][DEBUG   ][00017600]  Starting vAnnon...
+[20251012][DEBUG   ][00017600]  Loading resources...
+[20251012][DEBUG   ][00017600]  Font loaded: Lobster
+[20251012][DEBUG   ][00017600]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00017600]  Font loaded: Roboto
+[20251012][DEBUG   ][00017600]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00017600]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00017600]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00017600]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00017600]  applied styles from base
+[20251012][INFO    ][00017600]  main from vannon.main
+[20251012][INFO    ][00017600]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00017600]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00017600]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00017600]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00017600]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00017600]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00017600]  Setting IsInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00017600]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00017600]  Setting IsUIInitialized to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00017600]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  Setting IsLoaded to True
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00017600]  main from vannon.main
+[20251012][INFO    ][00017600]  Saving configuration...
+[20251012][DEBUG   ][00013528]  Logger config loaded VANNON
+[20251012][DEBUG   ][00013528]  Configure taskbar icon
+[20251012][DEBUG   ][00013528]  Starting vAnnon...
+[20251012][DEBUG   ][00013528]  Loading resources...
+[20251012][DEBUG   ][00013528]  Font loaded: Lobster
+[20251012][DEBUG   ][00013528]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00013528]  Font loaded: Roboto
+[20251012][DEBUG   ][00013528]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00013528]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00013528]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00013528]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00013528]  applied styles from base
+[20251012][INFO    ][00013528]  main from vannon.main
+[20251012][INFO    ][00013528]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00013528]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00013528]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00013528]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00013528]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00013528]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00013528]  Setting IsInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00013528]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00013528]  Setting IsUIInitialized to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00013528]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  Setting IsLoaded to True
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00013528]  main from vannon.main
+[20251012][INFO    ][00013528]  Saving configuration...
+[20251012][DEBUG   ][00027216]  Logger config loaded VANNON
+[20251012][DEBUG   ][00027216]  Configure taskbar icon
+[20251012][DEBUG   ][00027216]  Starting vAnnon...
+[20251012][DEBUG   ][00027216]  Loading resources...
+[20251012][DEBUG   ][00027216]  Font loaded: Lobster
+[20251012][DEBUG   ][00027216]  Font loaded: Lobster Two
+[20251012][DEBUG   ][00027216]  Font loaded: Roboto
+[20251012][DEBUG   ][00027216]  Font loaded: Roboto Black
+[20251012][DEBUG   ][00027216]  Font loaded: Roboto Light
+[20251012][DEBUG   ][00027216]  Font loaded: Roboto Medium
+[20251012][DEBUG   ][00027216]  Font loaded: Roboto Thin
+[20251012][DEBUG   ][00027216]  applied styles from base
+[20251012][INFO    ][00027216]  main from vannon.main
+[20251012][INFO    ][00027216]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00027216]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00027216]  __init__ from jAGUI.components.forms.__basic
+[20251012][INFO    ][00027216]  __init__ from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  __init__ from vannon.UI.__mainWindow
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00027216]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00027216]  __init__ from jAGUI.components.central.__central
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.central.__central
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.base.__formBase
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.__basic
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _createButton from jAGUI.components.titleBar.__titleBar
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00027216]  Setting IsInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  setupUI from jAGUI.components.statusBar.__statusBar
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  getinstance from jAGFx.singleton.__singleton
+[20251012][INFO    ][00027216]  setupUI from vannon.UI.__mainWindow
+[20251012][INFO    ][00027216]  Setting IsUIInitialized to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Load from jAGUI.components.forms.__modernWindow
+[20251012][INFO    ][00027216]  newPro from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  Setting IsLoaded to True
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  _OnPropertyChanged from jAGUI.components.utilities.__processMarker
+[20251012][INFO    ][00027216]  main from vannon.main
+[20251012][INFO    ][00027216]  Saving configuration...

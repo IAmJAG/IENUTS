@@ -1,0 +1,35 @@
+# ==================================================================================
+from jAGFx.signal import Signal
+
+
+class iVideoThread:
+    OnFrame: Signal
+    OnError: Signal
+
+    OnPlaybackStateChanged: Signal
+    OnMediaLoaded: Signal
+    OnMediaStateChanged: Signal
+
+    @property
+    def IsSeeking(self) -> bool: ...
+
+    @property
+    def SeekRequest(self) -> int: ...
+
+    @property
+    def PlaybackState(self) -> int: ...
+
+    @property
+    def MediaState(self) -> bool: ...
+
+    def play(self): ...
+
+    def pause(self): ...
+
+    def stop(self): ...
+
+    def setVideoFile(self, filePath: str): ...
+
+    def start(self): ...
+
+    def seek(self, frameIndex: int): ...

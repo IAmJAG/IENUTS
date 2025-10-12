@@ -1,0 +1,179 @@
+/* Title Bar Styles */
+--titlebarPrimary: #2C3E50; /* Deep Ocean Blue */
+--titlebarText: #ECF0F1;    /* Light Cloud White */
+--titlebarSecondary: #233140; /* Darker Ocean for borders */
+--titlebarAccent: #E67E22;   /* Carrot Orange Accent */
+--controlsHover: #34495E;    /* Lighter Ocean for hover */
+--controlsPressed: #212F3C;   /* Darker Ocean for pressed */
+--controlsChecked: #E67E22;   /* Use the accent color for checked state */
+
+--primary: #3D5C3D; /* Deep Ocean Blue */
+--text: #DDEEDD;    /* Light Cloud White */
+--textc: #0d0e0dff;    /* Light Cloud White */
+--secondary: #233140; /* Darker Ocean for borders */
+--accent: #FFD700;   /* Carrot Orange Accent */
+--hover: #4A704A;    /* Lighter Ocean for hover */
+--pressed: #2B402B;   /* Darker Ocean for pressed */
+--checked: #FFD700;   /* Use the accent color for checked state */
+
+--fontfamily: "Lobster Two";
+
+Central {
+    border: 1px solid @titlebarSecondary;
+    background-color: @titlebarPrimary;
+}
+
+TitleBar {
+    background-color: @titlebarPrimary;
+    color: @titlebarText;
+    border-left: 1px solid @titlebarSecondary;
+    border-right: 1px solid @titlebarSecondary;
+    border-bottom: 3px solid @titlebarAccent;
+    padding-bottom: 2px;
+}
+
+TitleBar QLabel {
+    font: 18pt @fontfamily;
+    color: @titlebarText;
+    padding-left: 2px;
+}
+
+TitleBar Button {
+    border: none;
+    background-color: transparent;
+}
+
+TitleBar Button:hover {
+    background-color: @controlsHover;
+}
+
+TitleBar Button:pressed {
+    background-color: @controlsPressed;
+}
+
+StatusBar {
+    background-color: @titlebarPrimary;
+    color: @titlebarText;
+    border-left: 1px solid @titlebarSecondary;
+    border-right: 1px solid @titlebarSecondary;
+    border-top: 2px solid @titlebarAccent;
+}
+
+/* General Widget Styles */
+QLabel {
+    color: @text;
+    font-size: 10pt;
+}
+
+QPushButton {
+    border: none;
+    background-color: @accent;
+    color: black;
+    border: 1px solid @secondary;
+    padding: 5px 10px;
+    border-radius: 0px;
+    font-size: 10pt;
+}
+
+QPushButton:hover {
+    background-color: @hover; /* Lighter orange */
+}
+
+QPushButton:pressed {
+    background-color: @pressed; /* Darker orange */
+}
+
+QSlider::groove:horizontal {
+    border: 1px solid @secondary;
+    height: 6px;
+    background: @secondary;
+    margin: 2px 0;
+    border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+    background: @accent;
+    border: 1px solid @secondary;
+    width: 18px;
+    margin: -5px 0;
+    border-radius: 9px;
+}
+
+QProgressBar {
+    border: 1px solid @secondary;
+    border-radius: 0px;
+    text-align: center;
+    color: @titlebarText;
+}
+
+QProgressBar::chunk {
+    background-color: @accent;
+    width: 20px;
+}
+
+
+QComboBox {
+    border: 1px solid @secondary;
+    background-color: @primary;
+    color: @text;
+}
+
+/* Dropdown button styling */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left-width: 1px;
+    border-left-color: @secondary;
+    border-left-style: solid;
+}
+
+/* Dropdown arrow styling */
+QComboBox::down-arrow {
+    image: url(assets/icons/arrowDown.png);
+    width: 12px;
+    height: 12px;
+}
+
+QComboBox::down-arrow:hover {
+    background-color: @hover;
+}
+
+QComboBox:on {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* The list view that appears when the QComboBox is clicked */
+QComboBox QAbstractItemView {
+    border: 1px solid @secondary;
+    border-top: none;
+    background-color: @primary;
+    selection-background-color: @hover;
+    color: @text;
+    outline: none;
+}
+
+QLineEdit {
+    border: 1px solid @primary;
+    border-radius: 0px;
+}
+
+QGraphicsView {
+    border: 2px solid @secondary;
+}
+
+cardBase {
+
+    background-color: @primary;
+    border: 1px solid @secondary;
+}
+
+cardBase:hover {
+    background-color: @hover;
+    border-color: @accent;
+}
+
+cardBase:pressed {
+    background-color: @pressed;
+}

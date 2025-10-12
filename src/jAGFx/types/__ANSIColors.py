@@ -1,0 +1,36 @@
+from enum import Enum
+
+__all__ = ["eAnsiColors"]
+
+
+class eAnsiColors(Enum):  # noqa: N801
+    COLOR_BLACK = "\033[30m"
+    COLOR_RED = "\033[31m"
+    COLOR_GREEN = "\033[32m"
+    COLOR_YELLOW = "\033[33m"
+    COLOR_BLUE = "\033[34m"
+    COLOR_MAGENTA = "\033[35m"
+    COLOR_CYAN = "\033[36m"
+    COLOR_WHITE = "\033[37m"
+    COLOR_BRIGHT_BLACK = "\033[90m"
+    COLOR_BRIGHT_RED = "\033[91m"
+    COLOR_BRIGHT_GREEN = "\033[92m"
+    COLOR_BRIGHT_YELLOW = "\033[93m"
+    COLOR_BRIGHT_BLUE = "\033[94m"
+    COLOR_BRIGHT_MAGENTA = "\033[95m"
+    COLOR_BRIGHT_CYAN = "\033[96m"
+    COLOR_BRIGHT_WHITE = "\033[97m"
+    COLOR_DARK_RED = "\033[2;31m"
+    COLOR_DARK_GREEN = "\033[2;32m"
+    COLOR_DARK_YELLOW = "\033[2;33m"
+    COLOR_DARK_BLUE = "\033[2;34m"
+    COLOR_DARK_MAGENTA = "\033[2;35m"
+    COLOR_DARK_CYAN = "\033[2;36m"
+    COLOR_DARK_WHITE = "\033[2;37m"
+    COLOR_ORANGE = "\033[38;5;208m"
+    COLOR_PINK = "\033[38;5;213m"
+    COLOR_PURPLE = "\033[38;5;129m"
+    COLOR_BROWN = "\033[38;5;94m"
+    COLOR_LIGHT_GRAY = "\033[37;1m"
+    COLOR_DARK_GRAY = "\033[90m"
+    COLOR_RESET = "\033[0m"

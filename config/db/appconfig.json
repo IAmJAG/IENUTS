@@ -1,0 +1,33 @@
+{
+  "Sections": {
+    "LOGGER": {
+      "DefaultLogLevel": "DEBUG",
+      "Filters": {
+        "NOTMINE": {
+          ".ALL": "DEBUG"
+        },
+        "jAGUI": {
+          ".components.utilities": "ERROR"
+        }
+      },
+      "__type__": "jAGFx.configuration.LoggerConfig"
+    }
+  },
+  "Title": "eNuts Dashboard",
+  "Company": "jAG",
+  "AppId": "dashboard",
+  "Icon": "logo",
+  "StyleDefaults": "cooldark",
+  "Style": "base",
+  "ImagesPaths": [
+    "",
+    "./assets/icons/",
+    "./assets/images/"
+  ],
+  "ImagesExtensions": [
+    ".png",
+    ".jpg",
+    ".bmp"
+  ],
+  "__type__": "dashboard.configuration.DashboardConfiguration"
+}

@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Main",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "./src/main.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
+        },
+        {
+            "name": "Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": false
+        },
+        {
+            "name": "TEST",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "test.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": ["jAGFx.jAGProperty"],
+            "justMyCode": false
+        }
+    ]
+}
