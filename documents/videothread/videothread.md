@@ -11,6 +11,7 @@ Key features:
 - Playback state management (play, pause, stop, forward, backward)
 - Frame-accurate seeking capabilities
 - Real-time FPS synchronization with video timing
+- Intelligent frame caching for improved performance
 - Thread-safe access to video capture operations
 - Signal-based communication for playback state changes and media events
 - Automatic loop handling and end-of-video detection
@@ -34,13 +35,22 @@ class VideoThread(Streamer):
     MediaState: eMediaState
 
     # Methods
-    def __init__(self, options: StreamerOptions = None)
+    def __init__(self, options: StreamerOptions = None, cacheOptions: CacheOptions = None)
     def play(self)
     def pause(self)
     def stop(self)
     def setVideoFile(self, filePath: str)
     def seek(self, frameIndex: int)
     def run(self) -> None
+    def Stop(self, timeout: float = -1) -> bool
+
+    # Cache Methods
+    def EnableCache(self)
+    def DisableCache(self)
+    def GetCachedFrame(self, frameIndex: int) -> ndarray | None
+    def AddToCache(self, frameIndex: int, frame: ndarray)
+    def ClearCache(self)
+    def UpdateCache(self)
 ```
 
 ## Related Classes and Enums
@@ -61,7 +71,7 @@ class ePlaybackState(IntFlag):
 
 #### States
 - **STOPPED**: Video is stopped and positioned at the beginning
-- **PLAYING**: Video is currently playing
+- **PLAYING**: Video is currently playing (normal speed)
 - **PAUSED**: Video is paused at current position
 - **FAST**: Fast playback mode (can be combined with PLAYING)
 - **FORWARD**: Forward playback (PLAYING with forward direction)
@@ -91,6 +101,26 @@ class MediaInfo(Serialisable):
 #### Methods
 - **getEstimatedDelay()**: Returns the estimated delay between frames (1/FPS)
 - **resetFPS()**: Resets FPS to original video FPS
+
+### CacheOptions
+
+A configuration class for VideoThread caching behavior.
+
+```python
+class CacheOptions(Serialisable):
+    # Properties
+    CacheDuration: int  # Total milliseconds to cache around current frame
+    TimerInterval: int  # Milliseconds between cache updates
+    AverageSeekReadTimeWindow: int  # Milliseconds to keep seek time entries
+    TimeSeekDuration: int  # Milliseconds to keep entries in _timeSeeks
+```
+
+#### Properties
+- **CacheDuration**: Total time in milliseconds to cache frames around current position
+- **TimerInterval**: Interval in milliseconds between cache update checks
+- **AverageSeekReadTimeWindow**: Time window in milliseconds for averaging seek+read times
+- **TimeSeekDuration**: Duration in milliseconds to retain seek time measurements
+- **Enabled**: Boolean flag to enable/disable caching functionality (default: True)
 
 ### eMediaState
 
@@ -167,11 +197,12 @@ class eMediaState(Enum):
 
 ## Methods
 
-### __init__(options: StreamerOptions = None)
+### __init__(options: StreamerOptions = None, cacheOptions: CacheOptions = None)
 - **Parameters**:
   - `options`: Configuration options for streaming behavior (default None, uses default StreamerOptions)
-- **Description**: Initializes the VideoThread instance with default state
-- **Notes**: Sets up internal locks, initializes state variables, and prepares for video operations
+  - `cacheOptions`: Configuration options for caching behavior (default None, uses default CacheOptions)
+- **Description**: Initializes the VideoThread instance with default state and caching
+- **Notes**: Sets up internal locks, initializes state variables, cache storage, performance tracking, and timer thread
 
 ### play()
 - **Description**: Starts or resumes video playback
@@ -196,6 +227,7 @@ class eMediaState(Enum):
   - Retrieves the first frame and emits it via `OnFrame`
   - Sets media state to `LOADED`
   - Starts the thread if not already running
+  - Starts the cache timer thread for background caching
 - **Raises**: `Exception` if the video file cannot be opened
 
 ### seek(frameIndex: int)
@@ -212,26 +244,85 @@ class eMediaState(Enum):
   - Defines an internal `_xGetFrame()` function for frame retrieval
   - Handles seeking, playback, and timing synchronization
   - Manages end-of-video looping and state transitions
+  - Starts cache timer thread for background caching
   - Calls the base class `run()` method with the custom frame getter
 - **Frame Retrieval Logic**:
+  - Checks cache first before VideoCapture operations
   - If seeking: Retrieves frame at seek position and clears seek request
   - If playing: Retrieves next frame and advances position
-  - Handles end-of-video by looping back to frame 0
-  - Synchronizes playback timing with video FPS
-- **Notes**: Uses monotonic time for precise timing control
+  - Handles end-of-video by looping back to frame 0 and stopping playback
+  - Synchronizes playback timing with video FPS using monotonic time
+  - Tracks seek and read performance for cache optimization (only non-zero times)
+  - Updates _frameTimeTimeLeft for cache timer coordination
+- **Notes**: Uses monotonic time for precise timing control, includes intelligent caching, and properly handles exceptions by re-raising them for base class error handling
+
+### GetCachedFrame(frameIndex: int)
+- **Parameters**:
+  - `frameIndex`: The frame index to retrieve from cache
+- **Returns**: `ndarray | None` - The cached frame or None if not cached
+- **Description**: Retrieves a frame from the cache if available
+
+### AddToCache(frameIndex: int, frame: ndarray)
+- **Parameters**:
+  - `frameIndex`: The frame index to cache
+  - `frame`: The frame data to cache
+- **Description**: Stores a frame in the cache for future retrieval
+
+### ClearCache()
+- **Description**: Clears all cached frames and performance tracking data
+- **Behavior**: Called automatically when unloading media
+
+### EnableCache()
+- **Description**: Enables the caching system at runtime
+- **Behavior**: Starts the cache timer thread and enables cache operations if not already enabled
+
+### DisableCache()
+- **Description**: Disables the caching system at runtime
+- **Behavior**: Stops the cache timer thread and disables cache operations if currently enabled
+
+### UpdateCache()
+- **Description**: Caches one frame per call, prioritized by playback direction
+- **Behavior**:
+  - Calculates cache range around current frame position based on CacheDuration and FPS
+  - Prioritizes caching based on BACKWARD/FORWARD playback state
+  - Finds next uncached frame in priority direction
+  - Caches exactly one frame to avoid blocking
+  - Returns early if caching is disabled or no MediaInfo/VideoCapture is available
+
+### Stop(timeout: float = -1) -> bool
+- **Parameters**:
+  - `timeout`: Timeout value for stopping the thread (default -1, uses base class default)
+- **Returns**: `bool` - Success status of stopping operation
+- **Description**: Stops the VideoThread and its cache timer thread
+- **Behavior**:
+  - Stops the cache timer thread if running
+  - Calls the base Streamer.Stop() method
+  - Returns the result from the base class
 
 ## Usage Example
 
 ```python
 from streamer import StreamerOptions
-from vannnon.videoThread import VideoThread, ePlaybackState
+from vannon.videoThread import VideoThread, ePlaybackState, CacheOptions
 
 # Create VideoThread with custom options
 options = StreamerOptions()
 options.ExitOnError = True
 options.ErrorThreshold = 5
 
-videoThread = VideoThread(options)
+# Configure caching (optional)
+cacheOptions = CacheOptions()
+cacheOptions.CacheDuration = 15000  # 15 seconds of frames
+cacheOptions.TimerInterval = 20     # Check every 20ms
+cacheOptions.Enabled = True         # Enable caching (default: True)
+
+videoThread = VideoThread(options, cacheOptions)
+
+# Runtime cache control
+videoThread.EnableCache()   # Enable caching
+videoThread.DisableCache()  # Disable caching
+
+videoThread = VideoThread(options, cacheOptions)
 
 # Connect to signals
 def handle_frame(frame: ndarray, frameId: int):
@@ -258,20 +349,30 @@ videoThread.play()
 
 # Stop and cleanup
 videoThread.stop()
-videoThread.Stop()  # Stop the streaming thread
+videoThread.Stop()  # Stop the streaming thread and cache timer
 ```
 
 ## Dependencies
 
 - `threading.RLock`: For thread-safe access to shared resources
+- `threading.Thread`: For background cache timer thread
 - `time.monotonic`: For high-precision timing in playback synchronization
+- `time.time`: For timestamp tracking in performance measurements
+- `time.sleep`: For precise timing control in frame synchronization
 - `cv2.VideoCapture`: OpenCV video capture functionality
+- `cv2.CAP_PROP_FPS`: For retrieving video FPS
+- `cv2.CAP_PROP_FRAME_COUNT`: For retrieving total frame count
+- `cv2.CAP_PROP_POS_FRAMES`: For setting/getting current frame position
 - `numpy.ndarray`: Frame data type
 - `jAGFx.logger.debug`: Logging functionality
 - `jAGFx.serializer.Serialisable`: Base serialization class
 - `jAGFx.signal.Signal`: Signal-slot communication system
 - `streamer.Streamer`: Base streaming class
 - `streamer.StreamerOptions`: Streaming configuration
+- `vannon.videoThread.CacheOptions`: Cache configuration class
+- `vannon.videoThread.MediaInfo`: Media information class
+- `vannon.videoThread.eMediaState`: Media state enumeration
+- `vannon.videoThread.ePlaybackState`: Playback state enumeration
 
 ## Thread Safety
 
@@ -281,17 +382,28 @@ The VideoThread uses multiple RLock objects to ensure thread-safe access to crit
 - `_seekLock`: Protects seek request operations
 - `_playLock`: Protects playback state
 - `_mediLock`: Protects media state
+- `_cacheLock`: Protects cache operations
+- `_frameTimeLock`: Protects _frameTimeTimeLeft access
 
 All property accessors use appropriate locks, and signal emissions are thread-safe through the base Signal implementation.
 
+The class also uses a separate daemon thread for cache management (`_cacheTimer`) that runs in the background to pre-load frames during idle periods. This thread coordinates with the main playback thread using `_frameTimeTimeLeft` to determine when caching is beneficial. The thread is properly cleaned up in the `Stop()` method to prevent resource leaks.
+
 ## Implementation Notes
 
-- VideoThread extends the base Streamer functionality with video-specific operations
-- Frame retrieval is handled by an internal `_xGetFrame()` function that manages seeking, playback direction, and timing
+- VideoThread extends the base Streamer functionality with video-specific operations and intelligent caching
+- Frame retrieval checks cache first, then falls back to VideoCapture operations with performance tracking
 - Playback timing uses monotonic time to ensure consistent frame rates regardless of system load
 - End-of-video handling automatically loops back to the beginning and stops playback
 - Seek operations are asynchronous and processed in the main loop to avoid blocking
 - Media loading emits the first frame immediately after loading for UI responsiveness
+- Intelligent caching uses separate timer thread to pre-load frames during idle periods
+- Cache prioritizes frames based on playback direction (BACKWARD/FORWARD)
+- Performance tracking measures seek+read times (only non-zero values) to optimize cache timing
+- Cache range dynamically adjusts based on current frame position
+- Runtime enable/disable methods for cache control during operation
+- Cache timer thread is properly stopped in Stop() method to prevent resource leaks
 - FPS synchronization ensures smooth playback at the video's native frame rate
 - Error handling delegates to the base Streamer class for consistent behavior
 - The class integrates seamlessly with the existing signal-slot architecture
+- Cache timer thread is properly stopped in the Stop() method to prevent resource leaks

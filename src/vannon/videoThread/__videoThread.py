@@ -1,6 +1,6 @@
 # ==================================================================================
-from threading import RLock
-from time import monotonic, sleep
+from threading import RLock, Thread
+from time import monotonic, sleep, time
 
 # ==================================================================================
 from cv2 import CAP_PROP_FPS, CAP_PROP_FRAME_COUNT, CAP_PROP_POS_FRAMES, VideoCapture
@@ -13,6 +13,7 @@ from jAGFx.signal import Signal
 from streamer import Streamer, StreamerOptions
 
 # ==================================================================================
+from .__cacheOptions import CacheOptions
 from .__mediaInfo import MediaInfo
 from .__mediaState import eMediaState
 from .__playbackState import ePlaybackState
@@ -23,7 +24,7 @@ class VideoThread(Streamer):
     OnMediaLoaded: Signal = Signal(MediaInfo)
     OnMediaStateChanged: Signal = Signal(eMediaState)
 
-    def __init__(self, options: StreamerOptions = None):
+    def __init__(self, options: StreamerOptions = None, cacheOptions: CacheOptions = None):
         super().__init__(options)
         self._vcap: VideoCapture = None
         self._mediaInfo: MediaInfo = None
@@ -33,26 +34,60 @@ class VideoThread(Streamer):
         self._playbackState: ePlaybackState = ePlaybackState.STOPPED
         self._mediaState: eMediaState = eMediaState.UNLOADED
 
+        # region [CACHE]
+        self._cache: dict[int, ndarray] = {}
+        self._cacheOptions: CacheOptions = cacheOptions or CacheOptions()
+        self._timeSeeks: dict[float, tuple[float, float]] = {}
+        self._averageSeekReadTime: float = 0.0
+        self._frameTimeTimeLeft: float = 0.0
+        self._cacheTimer: Thread = None
+        # endregion
+
         # region [LOCKS]
         self._vcapLock: RLock = RLock()
         self._nextLock: RLock = RLock()
         self._seekLock: RLock = RLock()
         self._playLock: RLock = RLock()
         self._mediLock: RLock = RLock()
+        self._cacheLock: RLock = RLock()
+        self._frameTimeLock: RLock = RLock()
         # endregion
 
     def _getFrame(self, position: int = -1):
         lFrame: ndarray = None
         lRet: bool = False
+        lSeekTime: float = 0.0
+        lReadTime: float = 0.0
+
+        # Check cache first (if enabled)
+        if position >= 0 and self._cacheOptions.IsEnabled:
+            lFrame = self.GetCachedFrame(position)
+            if lFrame is not None:
+                return lFrame
+
         with self._vcapLock:
             if self._vcap is not None:
-                if position  >= 0 and position != self.NextFrame:
+                if int(position) != int(self._vcap.get(CAP_PROP_POS_FRAMES)):
+                    lStartSeek = monotonic() * 1000
                     self._vcap.set(CAP_PROP_POS_FRAMES, position)
+                    lSeekTime = (monotonic() * 1000) - lStartSeek
 
+                lStartRead = monotonic() * 1000
                 lRet, lFrame = self._vcap.read()
+                lReadTime = (monotonic() * 1000) - lStartRead
 
         lFrame = lFrame if lRet else None
         lFrame = None if lFrame is not None and lFrame.ndim == 0 else lFrame
+
+        # Track seek/read times and cache frame (if enabled)
+        if self._cacheOptions.IsEnabled:
+            # Track seek/read times (only non-zero values)
+            if lSeekTime > 0 or lReadTime > 0:
+                self._updateAverageSeekReadTime(lSeekTime, lReadTime)
+
+            # Cache the frame if retrieved
+            if lFrame is not None and position >= 0:
+                self.AddToCache(position, lFrame)
 
         return lFrame
 
@@ -92,6 +127,8 @@ class VideoThread(Streamer):
 
                 lTimeEllapsed: float = (monotonic() * 1000) - lStartTime
                 lTimeLeft = (self.MediaInfo.getEstimatedDelay() * 1000) - lTimeEllapsed
+                with self._frameTimeLock:
+                    self._frameTimeTimeLeft = lTimeLeft
 
                 if lTimeLeft > 0:
                     lSleepDuration = max(0.0, lTimeLeft / 1000)
@@ -165,6 +202,17 @@ class VideoThread(Streamer):
             if lPMediaState != value:
                 self.OnMediaStateChanged.emit(self._mediaState)
 
+
+    def EnableCache(self):
+        if not self._cacheOptions.IsEnabled:
+            self._startCacheTimer()
+            self._cacheOptions.IsEnabled = True
+
+    def DisableCache(self):
+        if self._cacheOptions.IsEnabled:
+            self._stopCache()
+            self._cacheOptions.IsEnabled = False
+
     def play(self):
         self.PlaybackState = ePlaybackState.PLAYING
 
@@ -183,6 +231,7 @@ class VideoThread(Streamer):
             raise Exception(f"VideoThread: Could not open video file: {filePath}")
 
         with self._vcapLock:
+            self.ClearCache()  # Clear cache when unloading media
             self._mediaInfo = MediaInfo(lVidCap, filePath)
             self._vcap = lVidCap
 
@@ -196,8 +245,136 @@ class VideoThread(Streamer):
 
             if not self.is_alive():
                 self.start()
+                if self._cacheOptions.IsEnabled:
+                    self._startCacheTimer()
 
     def seek(self, frameIndex: int):
         if 0 <= frameIndex < self.MediaInfo.FrameCount:
             with self._seekLock:
                 self._seekRequest = frameIndex
+
+    def GetCachedFrame(self, frameIndex: int) -> ndarray | None:
+        with self._cacheLock:
+            return self._cache.get(frameIndex, None)
+
+    def AddToCache(self, frameIndex: int, frame: ndarray):
+        with self._cacheLock:
+            self._cache[frameIndex] = frame
+
+    def ClearCache(self):
+        with self._cacheLock:
+            self._cache.clear()
+            self._timeSeeks.clear()
+            self._averageSeekReadTime = 0.0
+
+    def UpdateCache(self):
+        if not self._cacheOptions.IsEnabled or self.MediaInfo is None or self._vcap is None:
+            return
+
+        lTotalCacheFrames = int((self._cacheOptions.CacheDuration / 1000) * self.MediaInfo.FPS)
+        lCurrentFrame = self.CurrentFrame
+
+        lLeftFrames = min(lTotalCacheFrames // 2, lCurrentFrame)
+        lRightFrames = lTotalCacheFrames - lLeftFrames
+
+        lStartFrame = max(0, lCurrentFrame - lLeftFrames)
+        lEndFrame = min(self.MediaInfo.FrameCount - 1, lCurrentFrame + lRightFrames)
+
+        # Determine priority direction
+        lPriorityDirection = 1  # Default forward
+        if self.PlaybackState & ePlaybackState.BACKWARD:
+            lPriorityDirection = -1
+
+        # Find next uncached frame in priority direction
+        lFrameToCache = -1
+        if lPriorityDirection > 0:
+            # Forward priority: cache right first
+            for lFrame in range(lCurrentFrame + 1, lEndFrame + 1):
+                if lFrame not in self._cache:
+                    lFrameToCache = lFrame
+                    break
+            if lFrameToCache == -1:
+                # No right frames, cache left
+                for lFrame in range(lCurrentFrame - 1, lStartFrame - 1, -1):
+                    if lFrame not in self._cache:
+                        lFrameToCache = lFrame
+                        break
+        else:
+            # Backward priority: cache left first
+            for lFrame in range(lCurrentFrame - 1, lStartFrame - 1, -1):
+                if lFrame not in self._cache:
+                    lFrameToCache = lFrame
+                    break
+            if lFrameToCache == -1:
+                # No left frames, cache right
+                for lFrame in range(lCurrentFrame + 1, lEndFrame + 1):
+                    if lFrame not in self._cache:
+                        lFrameToCache = lFrame
+                        break
+
+        # Cache the frame if found
+        if lFrameToCache >= 0:
+            lFrame = self._getFrame(lFrameToCache)
+            if lFrame is not None:
+                self.AddToCache(lFrameToCache, lFrame)
+
+    def _updateAverageSeekReadTime(self, seekTime: int, readTime: int):
+        lCurrentTime = time() * 1000
+        self._timeSeeks[lCurrentTime] = (seekTime, readTime)
+
+        lCutoffTime = lCurrentTime - self._cacheOptions.TimeSeekDuration
+
+        # Clean old entries
+        self._timeSeeks = {k: v for k, v in self._timeSeeks.items() if k >= lCutoffTime}
+
+        if not self._timeSeeks:
+            self._averageSeekReadTime = 1000 / self.MediaInfo.FPS if self.MediaInfo else 0.0
+            return
+
+        # Calculate average of non-zero seek+read times
+        lTotalSeekTime = 0.0
+        lSeekCount = 0
+        lTotalReadTime = 0.0
+        lReadCount = 0
+        for lSeekTime, lReadTime in self._timeSeeks.values():
+
+            if lSeekTime > 0:
+                lTotalSeekTime += lSeekTime
+                lSeekCount += 1
+
+            if lReadTime > 0:
+                lTotalReadTime += lReadTime
+                lReadCount += 1
+
+        lAvgSeekTime = lTotalSeekTime / lSeekCount if lSeekCount > 0 else 0
+        lAvgReadTime = lTotalReadTime / lReadCount if lReadCount > 0 else 0
+
+        self._averageSeekReadTime = lAvgSeekTime + lAvgReadTime if lAvgSeekTime > 0 or lAvgReadTime > 0 else (1000 / self.MediaInfo.FPS if self.MediaInfo else 0.0)
+
+    def _startCacheTimer(self):
+        if self._cacheTimer is not None and self._cacheTimer.is_alive():
+            return
+
+        def _cacheTimerLoop():
+            while self.IsRunning and self._cacheOptions.IsEnabled:
+                with self._frameTimeLock:
+                    lFrameTimeTimeLeft = self._frameTimeTimeLeft
+                if lFrameTimeTimeLeft > self._averageSeekReadTime:
+                    self.UpdateCache()
+                sleep(self._cacheOptions.TimerInterval / 1000)
+
+        debug("starting cache timer")
+        self._cacheTimer = Thread(target=_cacheTimerLoop, daemon=True)
+        self._cacheTimer.start()
+        debug(f"cache timer started ({self._cacheTimer.ident})")
+
+    def _stopCache(self):
+        # Stop cache timer
+        if self._cacheTimer and self._cacheTimer.is_alive():
+            self._cacheTimer.join()
+
+        self._cacheTimer = None  # Daemon thread will stop with main thread
+
+    def Stop(self, timeout: float = -1):
+        self._stopCache()
+        return super().Stop(timeout)
