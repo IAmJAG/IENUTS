@@ -1,18 +1,27 @@
+# ==================================================================================
+import inspect
 import weakref
+
+# ==================================================================================
 from threading import current_thread, main_thread
 
+# ==================================================================================
+from PySide6.QtCore import QCoreApplication, QObject, QSettings, Qt, QThread, Signal
+from PySide6.QtWidgets import QBoxLayout, QMainWindow, QScrollArea, QTabWidget, QWidget
+
+# ==================================================================================
 from jAGFx.configuration import ApplicationConfiguration, iConfiguration
 from jAGFx.dependencyInjection.Providers import Provider
 from jAGFx.property import Property
 from jAGFx.utilities import getRandomNames
-from PySide6.QtCore import QObject, QSettings, Qt
-from PySide6.QtWidgets import QBoxLayout, QMainWindow, QScrollArea, QTabWidget, QWidget
 
+# ==================================================================================
 from ...contracts import iComponent
 from ..utilities import convertSquareSides
 
 
 class Component(iComponent):
+    Invoke: Signal = Signal(str, object, object)
     def __init__(self, name: str = "", parent: QWidget = None, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -39,6 +48,15 @@ class Component(iComponent):
 
         self.setObjectName(name)
 
+        def _invoke(methodName: str, args, kwargs):
+            method = getattr(self, methodName)
+            if callable(method):
+                return method(*args, **kwargs)
+
+            raise TypeError(f"{methodName} is not callable.")
+
+        self.Invoke.connect(_invoke)
+
         weakref.ref(self, self._cleanUp)
 
     def _cleanUp(self):
@@ -64,7 +82,16 @@ class Component(iComponent):
 
     @property
     def InvokeRequired(self) -> bool:
-        return current_thread().ident != main_thread().ident
+        return QThread.currentThread() != QCoreApplication.instance().thread()
+
+    def invoke(self, *args, **kwargs):
+        frame = inspect.currentframe()
+        caller_frame = frame.f_back if frame else None
+        method_name = caller_frame.f_code.co_name if caller_frame else None
+        if not method_name or not hasattr(self, method_name):
+            raise AttributeError("No current method set or method does not exist.")
+
+        self.Invoke.emit(method_name, args, kwargs)
 
     @property
     def ContentSpacing(self):

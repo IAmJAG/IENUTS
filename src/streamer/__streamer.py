@@ -5,7 +5,7 @@ from collections import deque
 from threading import RLock, Thread
 
 # ==================================================================================
-from time import time
+from time import sleep, time
 
 # ==================================================================================
 from numpy import ndarray
@@ -13,20 +13,9 @@ from numpy import ndarray
 # ==================================================================================
 from jAGFx.signal import Signal
 
+# ==================================================================================
+from ..utilities import threadRaiseAsync
 from .__streamerOptions import StreamerOptions
-
-
-def _async_raise(tid, exctype):
-    if not inspect.isclass(exctype):
-        raise TypeError("Only types can be raised (not instances)")
-
-    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(ctypes.c_long(tid), ctypes.py_object(exctype))
-    if res == 0:
-        raise ValueError("invalid thread id")
-
-    elif res != 1:
-        ctypes.pythonapi.PyThreadState_SetAsyncExc(ctypes.c_long(tid), None)
-        raise SystemError("PyThreadState_SetAsyncExc failed")
 
 
 class Streamer(Thread):
@@ -41,7 +30,7 @@ class Streamer(Thread):
         self._options = options or StreamerOptions()
         self._timedFrame: deque[float] = deque()
         self._errorTimes: deque[float] = deque()
-        self._isrunning: bool = True
+        self._isrunning: bool = False
 
         self._currentFrame: int = 0
 
@@ -140,5 +129,5 @@ class Streamer(Thread):
         if timeout >= 0:
             # force
             if self.is_alive():
-                time.sleep(timeout)
-                _async_raise(self.ident, SystemExit)
+                sleep(timeout)
+                threadRaiseAsync(self.ident, SystemExit)

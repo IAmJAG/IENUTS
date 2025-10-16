@@ -177,3 +177,46 @@ cardBase:hover {
 cardBase:pressed {
     background-color: @pressed;
 }
+
+Navigation {
+    background-color: @primary;
+    border-right: 2px solid @accent;
+}
+
+Navigation Button#TOGGLEBUTTON{
+    background-color: @primary;
+    font: 16pt;
+    border-right:  2px solid @accent;
+    border-bottom: 2px solid @accent;
+    padding: 10px;
+}
+
+Navigation Button#TOGGLEBUTTON:hover{
+    background-color: @hover;
+}
+
+Navigation Button#TOGGLEBUTTON:pressed{
+    background-color: @pressed;
+}
+
+Navigation ContainerBase#MENUCONTENTS{
+    background-color: @primary;
+    margin-top: 5px;
+    border-right:  2px solid @accent;
+}
+
+Navigation ContainerBase#MENUCONTENTS Button{
+    background-color: @secondary;
+}
+
+Navigation ContainerBase#MENUCONTENTS Button:hover{
+    background-color: @hover;
+}
+
+Navigation ContainerBase#MENUCONTENTS Button:pressed{
+    background-color: @pressed;
+}
+
+Navigation ContainerBase#MENUCONTENTS Button:checked{
+    background-color: @checked;
+}

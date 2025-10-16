@@ -32,7 +32,7 @@ class cardBase(ComponentBase):
         self.setMinimumHeight(160 + 60)
 
         lPixmap: QPixmap = QPixmap(self._iconPath)
-        lPixmap = lPixmap.scaled(160, 160, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        lPixmap = lPixmap.scaled(160, 160, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
 
         self._title: QLabel = QLabel(self._title, alignment=Qt.AlignmentFlag.AlignCenter)
         self._title.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
@@ -45,12 +45,11 @@ class cardBase(ComponentBase):
     # region [PROPERTIES]
     @Property
     def Title(self) -> str:
-        return self._title.Text
+        return self._title.text()
 
     @Title.setter
     def Title(self, value: str):
-        self._title.Text = value
-
+        self._title.setText(value)
     # endregion
 
     def mouseReleaseEvent(self, event: QMouseEvent):

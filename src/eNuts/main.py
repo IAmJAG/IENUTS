@@ -15,7 +15,7 @@ from jAGFx.logger import *
 from utilities import LoadFonts, LoadQSS, loadConfig
 
 # ==================================================================================
-from .configuration import vAnnonConfiguration
+from .configuration import ENUTSConfig
 from .UI import MainWindow
 
 
@@ -27,7 +27,7 @@ def main(args=sys.argv):
 
     try:
         debug("Configure taskbar icon")
-        cfg: vAnnonConfiguration = Provider.Resolve(iConfiguration)
+        cfg: ENUTSConfig = Provider.Resolve(iConfiguration)
 
         lAppUserID = f"{cfg.Company}.{cfg.Title}"
         if sys.platform == "win32":

@@ -1,21 +1,22 @@
+import inspect
 import os
 
-# ------------------------------------------------------
+# ==================================================================================
 from typing import Any
 
-# ------------------------------------------------------
-from PySide6.QtCore import QSettings, Qt, Signal
+# ==================================================================================
+from PySide6.QtCore import QCoreApplication, QSettings, Qt, QThread, Signal
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QBoxLayout, QMainWindow, QSpacerItem, QWidget
 
-# ------------------------------------------------------
+# ==================================================================================
 from jAGFx.configuration import ApplicationConfiguration, iConfiguration
 from jAGFx.dependencyInjection import Provider
 from jAGFx.exceptions import jAGException
 from jAGFx.overload import OverloadDispatcher
 from jAGFx.utilities.io import getICONPath
 
-# ------------------------------------------------------
+# ==================================================================================
 from ....contracts import iComponent
 from ...central import Central
 from ...utilities import findLayoutByName, processMarker
@@ -26,6 +27,7 @@ __all__ = ["FormBase"]
 @processMarker(True, True)
 class FormBase(QMainWindow, iComponent):
     OnPropertyChanged: Signal = Signal(Any, str, bool, bool)
+    Invoke: Signal = Signal(str, object, object)
 
     def __init__(self, frameless: bool = False):
         super().__init__()
@@ -42,6 +44,15 @@ class FormBase(QMainWindow, iComponent):
             self._appId: str = cfg.AppId
             self._logo: str = cfg.Icon
             self._qsettings = QSettings(self.Company, self.ApplicationId)
+
+            def _invoke(methodName: str, args, kwargs):
+                method = getattr(self, methodName)
+                if callable(method):
+                    return method(*args, **kwargs)
+
+                raise TypeError(f"{methodName} is not callable.")
+
+            self.Invoke.connect(_invoke)
 
         except Exception as ex:
             raise jAGException(
@@ -216,3 +227,16 @@ class FormBase(QMainWindow, iComponent):
     def RemoveComponent(self, objectName: str):
         comp = self.Layout.findChild(QWidget, objectName)
         return self.RemoveComponent(comp)
+
+    @property
+    def InvokeRequired(self) -> bool:
+        return QThread.currentThread() != QCoreApplication.instance().thread()
+
+    def invoke(self, *args, **kwargs):
+        frame = inspect.currentframe()
+        caller_frame = frame.f_back if frame else None
+        method_name = caller_frame.f_code.co_name if caller_frame else None
+        if not method_name or not hasattr(self, method_name):
+            raise AttributeError("No current method set or method does not exist.")
+
+        self.Invoke.emit(method_name, args, kwargs)

@@ -34,10 +34,12 @@ class MainWindow(ModernWindow):
         self.Layout.addLayout(lLayout)
         self._layout: FlowLayout = lLayout
 
-        lNewCard: cardBase = cardBase("Video Annotator", getICONPath("logo"))
-        lNewCard.clicked.connect(lambda: self._launchApp("vannon"))
-        self.Layout.addWidget(lNewCard)
-
+        leNuts: cardBase = cardBase("eNuts", getICONPath("logo"))
+        leNuts.clicked.connect(lambda: self._launchApp("eNuts"))
+        lvAnnon: cardBase = cardBase("Video Annotator", getICONPath("logo"))
+        lvAnnon.clicked.connect(lambda: self._launchApp("vannon"))
+        self.Layout.addWidget(leNuts)
+        self.Layout.addWidget(lvAnnon)
 
         self.Layout.setSpacing(3)
         self.Layout.setContentsMargins(5, 5, 5, 5)
