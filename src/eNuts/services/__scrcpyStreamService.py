@@ -115,11 +115,6 @@ class SCRCPYStreamService(StreamService):
         except Exception as ex:
             raise ex
 
-    def start(self):
-        if self.isAlive:
-            return
-        super().start()
-
     # region [PROPERTIES]
     @property
     def ADBSerial(self) -> str:

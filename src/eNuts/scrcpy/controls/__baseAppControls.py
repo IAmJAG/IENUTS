@@ -1,6 +1,7 @@
 from adbutils import AdbDevice, AdbError
-from jAGFx.logger import debug, error, warning
 from PIL.Image import Image
+
+from jAGFx.logger import debug, error, warning
 
 from ..control import ControlSender
 

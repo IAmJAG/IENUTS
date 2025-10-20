@@ -3,14 +3,15 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 from adbutils import AdbDevice
+from PySide6.QtGui import QIcon, QKeyEvent, QMouseEvent
+from PySide6.QtWidgets import QApplication, QBoxLayout, QFileDialog, QPushButton, QSizePolicy, QWidget
+
 from jAGFx.logger import debug, error
 from jAGUI.components import Button
 from jAGUI.components.forms import FormBasic
 from jAGUI.components.statusBar import StatusBar
 from jAGUI.components.titleBar import TitleBar
 from jAGUI.components.utilities import getIcon, processMarker
-from PySide6.QtGui import QIcon, QKeyEvent, QMouseEvent
-from PySide6.QtWidgets import QApplication, QBoxLayout, QFileDialog, QPushButton, QSizePolicy, QWidget
 
 from ..contracts import iDeviceMonitor
 from ..scrcpy import mapCode
@@ -78,6 +79,7 @@ class MainWindow(FormBasic):
         # lProduct: str = device.shell(["getprop", "ro.product.model"])
 
         lStreamer: SCRCPYStreamService = SCRCPYStreamService(device.serial, 1250, 5000)  ## passing adb serial
+
         lClient: StreamerClient = StreamerClient(lStreamer, lStreamer.DeviceName)
 
         lFunc = self._getRecorder if self._enableTools else None

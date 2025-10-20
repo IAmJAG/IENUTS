@@ -1,6 +1,7 @@
 import numpy as np
-from jAGFx.utilities.names import getRandomNames
 from PySide6.QtCore import QSize, Signal
+
+from jAGFx.utilities.names import getRandomNames
 
 from .__QObjectService import Service
 

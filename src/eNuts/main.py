@@ -39,7 +39,7 @@ def main(args=sys.argv):
         LoadFonts()
         LoadQSS(cfg.Style)
 
-        main = MainWindow()
+        main = MainWindow(True)
         main.show()
 
         lExitCode = lApp.exec()

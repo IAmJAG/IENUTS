@@ -3,9 +3,10 @@ import weakref
 # ------------------------------------------------------
 from threading import Lock, RLock, Thread
 
+from PySide6.QtCore import QObject, Signal
+
 # ------------------------------------------------------
 from jAGFx.logger import error
-from PySide6.QtCore import QObject, Signal
 
 
 class Service(QObject):

@@ -205,9 +205,8 @@ class AndroidStreamer(Service):
                 for lPacket in lPackets:
                     lFrames: list[VideoFrame] = lCodec.decode(lPacket)
                     for lFrame in lFrames:
-                        lArrFrame: ndarray = lFrame.to_ndarray(format="bgr24")
-                        self._resolution = (lArrFrame.shape[1], lArrFrame.shape[0])
-                        self._onFrame(lArrFrame)
+                        self._resolution = (lFrame.shape[1], lFrame.shape[0])
+                        self._onFrame(lFrame)
 
             except (BlockingIOError, InvalidDataError):
                 sleep(0.01)

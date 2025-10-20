@@ -127,7 +127,6 @@ class Streamer(Thread):
             self._isrunning = False
 
         if timeout >= 0:
-            # force
             if self.is_alive():
                 sleep(timeout)
                 threadRaiseAsync(self.ident, SystemExit)

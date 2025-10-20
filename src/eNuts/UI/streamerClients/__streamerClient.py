@@ -3,12 +3,13 @@ from threading import Lock
 from typing import Any
 
 import numpy as np
-from jAGFx.logger import debug, error
-from jAGUI.components.bases import Component
-from jAGUI.components.utilities import processMarker
 from PySide6.QtCore import QSize, Signal
 from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import QApplication, QLabel, QWidget
+
+from jAGFx.logger import debug, error
+from jAGUI.components.bases import Component
+from jAGUI.components.utilities import processMarker
 
 from ...services import StreamService
 
@@ -25,6 +26,7 @@ class StreamerClient(Component, QLabel):
         self._streamerLock: Lock = Lock()
         with self._streamerLock:
             self._streamer: StreamService = strmr
+
             self._streamer.OnStarted.connect(lambda th: debug(f"Streamer {self._streamer.Name} started"))
             self._streamer.OnFrame.connect(self._showImage)
 
