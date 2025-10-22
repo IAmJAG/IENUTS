@@ -7,10 +7,10 @@ __all__ = ["StreamerOptions"]
 class StreamerOptions(Configuration):
     def __init__(self):
         super().__init__()
-        self._exitOnError: bool = False
-        self._errorThreshold: int = 1
+        self._exitOnError: bool = True
+        self._errorThreshold: int = 6
         self._errorTimeWindow: float = 60.0
-        self._errorTimeThreshold: int = 5
+        self._errorTimeThreshold: int = 7
         self._successThreshold: int = 3
         self._fpsTimeRange: float = 60.0
 

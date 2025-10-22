@@ -10,21 +10,22 @@ from PySide6.QtGui import QCursor, QPen, QPixmap, Qt
 from PySide6.QtWidgets import QBoxLayout, QGraphicsItem
 
 # ==================================================================================
+from dataobjects import BoundingBox
 from jAGFx.logger import debug
 from jAGFx.property import TSProperty
 from jAGUI.components.utilities import processMarker
+from utilities import NDArrayToPixmap, findContourRect
 
 # ==================================================================================
 from ...videoThread import VideoThread, ePlaybackState
-
-# ==================================================================================
 from .__graphicsView import GraphicsView
+from .graphicsItems import GIBoundingBox
 
 AREA_TOLERANCE: int = 100
 POSI_TOLERANCE: int = 10
 
 @processMarker(True, True)
-class MediaView(GraphicsView):
+class VideoStream(GraphicsView):
     RESIZE_HANDLE_SIZE = 8
 
     # where int is the new index
@@ -50,28 +51,32 @@ class MediaView(GraphicsView):
     def Load(self):
         del self._tmpVT
 
+    def _onFrame(self, frame: ndarray, frameIndex: int):
+        if self.InvokeRequired:
+            self.invoke(frame, frameIndex)
+            return
+
+        if frame is None or frame.size == 0:
+            self._rawImage = None
+            print("Frame not available")
+            return
+
+        if self.FrameIndex != frameIndex:
+            self._rawImage = frame
+
+            for gitem in self.scene().items():
+                if gitem != self.Canvas:
+                    self.scene().removeItem(gitem)
+
+            self.FrameIndex = frameIndex
+
+            lPixmap: QPixmap = self.ProcessImage(frame)
+            self.Canvas.setPixmap(lPixmap)
+
+            self.scene().setSceneRect(0, 0, lPixmap.width(), lPixmap.height())
+            self.fitInView(self.scene().sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
+
     def setupUI(self, layout: QBoxLayout = None):
-
-        def _onFrame(frame: ndarray, frameIndex: int):
-            if frame is None or frame.size == 0:
-                self._rawImage = None
-                debug("Frame not available")
-                return
-
-            if self.FrameIndex != frameIndex:
-                self._rawImage = frame
-
-                for gitem in self.scene().items():
-                    if gitem != self.Canvas:
-                        self.scene().removeItem(gitem)
-
-                self.FrameIndex = frameIndex
-
-                lPixmap: QPixmap = self.ProcessImage(frame)
-                self.Canvas.setPixmap(lPixmap)
-
-                self.scene().setSceneRect(0, 0, lPixmap.width(), lPixmap.height())
-                self.fitInView(self.scene().sceneRect(), Qt.AspectRatioMode.KeepAspectRatio)
 
         def _onBoxCreated(rect: QRectF):
             if self.RawImage is None or self.RawImage.size == 0:
@@ -83,8 +88,8 @@ class MediaView(GraphicsView):
         def _playbackChanged(state: ePlaybackState):
             self.DrawingEnabled = (state & ePlaybackState.PLAYING) != ePlaybackState.PLAYING
 
-        self._tmpVT.OnFrame.connect(_onFrame)
-        self._tmpVT.OnPlaybackStateChanged.connect(_playbackChanged)
+        self._tmpVT.OnFrame.connect(self._onFrame)
+        self._tmpVT.OnPlaybackStateChanged.connect(_playbackChanged, blocking=False)
         self.OnBoxCreated.connect(_onBoxCreated)
 
     @TSProperty
@@ -109,19 +114,19 @@ class MediaView(GraphicsView):
 
     def selectGraphicsItemById(self, bboxId: str):
         for item in self.scene().items():
-            if isinstance(item, BBGraphicsItem) and item.Id == bboxId:
+            if isinstance(item, GIBoundingBox) and item.Id == bboxId:
                 item.setSelected(True)
                 break
 
     def AddGraphicItem(self, rect: QRectF):
         lBBox: BoundingBox = BoundingBox("object", findContourRect(self.RawImage, rect))
 
-        def _onBoxChanged(_box: BBGraphicsItem):
+        def _onBoxChanged(_box: GIBoundingBox):
             lBox: BoundingBox = BoundingBox("object", _box.rect())
             lBox._id = _box.Id
             self.OnItemUpdate.emit(self.FrameIndex, lBox)
 
-        lBBGI: BBGraphicsItem = BBGraphicsItem(lBBox)
+        lBBGI: GIBoundingBox = GIBoundingBox(lBBox)
         lBBGI.setFlags(QGraphicsItem.GraphicsItemFlag.ItemIsSelectable | QGraphicsItem.GraphicsItemFlag.ItemIsMovable | QGraphicsItem.GraphicsItemFlag.ItemSendsGeometryChanges)
         lBBGI.setPen(QPen(Qt.GlobalColor.green, 2, Qt.PenStyle.SolidLine))
 
@@ -136,7 +141,7 @@ class MediaView(GraphicsView):
         def _copySelectedBox():
             self._clipboard.clear()
             for lItem in self.scene().selectedItems():
-                if isinstance(lItem, BBGraphicsItem):
+                if isinstance(lItem, GIBoundingBox):
                     self._clipboard.append(lItem.rect())
 
         def _pasteClipboard():
@@ -150,7 +155,7 @@ class MediaView(GraphicsView):
             lSelectedItems = self.scene().selectedItems()
             if lSelectedItems:
                 for lItem in lSelectedItems:
-                    if isinstance(lItem, BBGraphicsItem):
+                    if isinstance(lItem, GIBoundingBox):
                         self.scene().removeItem(lItem)
                         lCIndex = self.FrameIndex
                         self.OnItemRemove.emit(lCIndex, lItem.Id)

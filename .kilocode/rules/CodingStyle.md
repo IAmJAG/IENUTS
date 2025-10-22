@@ -56,6 +56,7 @@ All code in this project must follow these coding style rules to ensure consiste
 - Benchmark performance-critical functions with decorators.
 - Load configurations from JSON files.
 - Ensure cross-platform compatibility where applicable.
+- When working with Signal classes, consider and analyze whether it is PySide6 Signal or jAGFx Signal, as they have different threading behaviors and cross-thread communication capabilities.
 
 ---
 

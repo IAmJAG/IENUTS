@@ -1,8 +1,11 @@
+# ==================================================================================
 from typing import Any
 from uuid import uuid4
 
+# ==================================================================================
 from PySide6.QtCore import QRect, QRectF
 
+# ==================================================================================
 from jAGFx.overload import OverloadDispatcher
 from jAGFx.serializer import Serialisable
 

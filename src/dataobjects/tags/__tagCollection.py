@@ -1,15 +1,19 @@
+# ==================================================================================
 import json
 import os
+
+# ==================================================================================
 from typing import Optional
 
+# ==================================================================================
 from jAGFx.contracts.configuration import iConfiguration
 from jAGFx.dependencyInjection import Provider
 from jAGFx.logger import debug
 from jAGFx.overload import OverloadDispatcher
 from jAGFx.serializer import Serialisable, jsonDecode
 
-from ..configuration import vAnnonConfiguration
-from ..contracts import iTag
+# ==================================================================================
+from proto import iTag
 
 
 class TagCollection(Serialisable, list):
@@ -61,20 +65,6 @@ class TagCollection(Serialisable, list):
         super().clear()
         self._usedCodes.clear()
         self._usedTexts.clear()
-
-    def Save(self) -> None:
-        lConfig: vAnnonConfiguration = Provider.Resolve(iConfiguration)
-        os.makedirs(os.path.dirname(lConfig.TagsPath), exist_ok=True)
-        with open(lConfig.TagsPath, "w") as f:
-            json.dump(self.encode(), f, indent=4)
-
-    def Load(self) -> None:
-        lConfig: vAnnonConfiguration = Provider.Resolve(iConfiguration)
-        if os.path.exists(lConfig.TagsPath):
-            with open(lConfig.TagsPath) as f:
-                lData = json.load(f)
-
-            self.decode(lData)
 
     def encode(self) -> dict[str, object]:
         lDict: dict = super().encode()

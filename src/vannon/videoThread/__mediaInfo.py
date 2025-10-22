@@ -19,8 +19,8 @@ class MediaInfo(Serialisable):
 
         self.Properties.append(["FPS", "FrameCount"])
 
-    def getEstimatedDelay(self):
-        return 1 / (self.FPS if self.FPS > 0 else 60)
+    def getEstimatedDelay(self, speed: float = 1.0):
+        return 1 / (self.FPS * speed if self.FPS > 0 else 60)
 
     @property
     def FPS(self) -> float:

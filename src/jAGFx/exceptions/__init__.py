@@ -1,5 +1,6 @@
-# Initialize Exceptions package
 
+# ==================================================================================
+from .__classError import ModuleException
 from .__exceptionBase import jAGException
 from .__parameterExceptions import (
     invalidParameterTypeException,
@@ -7,7 +8,8 @@ from .__parameterExceptions import (
 )
 
 __all__ = [
-    'invalidParameterTypeException',
-    'jAGException',
-    'parameterRequiredException',
+    "invalidParameterTypeException",
+    "jAGException",
+    "ModuleException",
+    "parameterRequiredException",
 ]

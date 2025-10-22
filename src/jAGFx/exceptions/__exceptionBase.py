@@ -1,3 +1,4 @@
+# ==================================================================================
 from inspect import currentframe
 from types import FrameType
 from typing import Any
@@ -6,6 +7,8 @@ __all__ = ["jAGException"]
 
 
 class jAGException(Exception):
+    """Base exception class for jAGFx framework providing contextual error information."""
+
     __slots__ = ["_attribute", "_filename", "_inner", "_linenumber"]
 
     def __init__(
@@ -16,21 +19,24 @@ class jAGException(Exception):
         *args: list[Any],
         **kwargs: dict[str, Any],
     ) -> None:
-        # Assuming the the error is a frame deep back
         lFrame: FrameType = currentframe().f_back if frame is None else frame
 
         self._filename: str = lFrame.f_code.co_filename
         self._attribute: str = lFrame.f_code.co_name
         self._linenumber: int = lFrame.f_lineno
 
+        lCMsg: str = f"Unexpected error occur in {self._filename}: {self._attribute}, line {self._linenumber}"
+
         if message is None:
-            lMessage = f"Unexpected error occur in {self._filename}: {self._attribute}, line {self._linenumber}"
+            lMessage = lCMsg
 
         else:
-            lMessage = message
+            if isinstance(message, list):
+                lMessage = [lCMsg] + message
+            else:
+                lMessage = [lCMsg, message]
 
         self._inner = inner
-
         super().__init__(lMessage, *args, **kwargs)
 
     @property

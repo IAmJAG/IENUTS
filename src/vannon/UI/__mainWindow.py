@@ -1,13 +1,18 @@
 # ==================================================================================
+from time import sleep
+
+# ==================================================================================
 from PySide6.QtGui import QCloseEvent
 from PySide6.QtWidgets import QBoxLayout
 
 # ==================================================================================
 from jAGUI.components.forms import ModernWindow
 from jAGUI.components.utilities import processMarker
+from utilities.mwHelper import InitializeLayout
 
 # ==================================================================================
-from utilities.mwHelper import InitializeLayout
+from ..videoThread import VideoThread
+from .components import VideoStream
 
 
 @processMarker(True, True)
@@ -22,14 +27,18 @@ class MainWindow(ModernWindow):
         self.Layout.addLayout(lLayout)
         self._layout: QBoxLayout = lLayout
 
-        self.Layout.addStretch()
+        lVT: VideoThread = VideoThread()
+        lVS: VideoStream = VideoStream(lVT)
 
-        # region [CLOSE EVENT]
-        lOldCloseEvent = self.closeEvent
+        self.Layout.addWidget(lVS)
+        # self.Layout.addStretch()
 
-        def _newCloseEvent(event: QCloseEvent):
-            lOldCloseEvent(event)
+        lVT.OnMediaLoaded.connect(lambda mi: lVT.play())
+        lVT.setVideoFile("D:\\Training\\Data\\video\\buying_hp_postion.mp4")
 
-        self.closeEvent = _newCloseEvent
+        def _cleanUp():
+            nonlocal lVT
+            lVT.Stop()
+            lVT = None
 
-        # endregion
+        self.CleanUp = _cleanUp

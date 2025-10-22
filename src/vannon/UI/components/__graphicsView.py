@@ -1,6 +1,8 @@
+# ==================================================================================
+import inspect
 
 # ==================================================================================
-from PySide6.QtCore import QRectF, Signal
+from PySide6.QtCore import QCoreApplication, QRectF, QThread, Signal
 from PySide6.QtGui import QColor, QMouseEvent, QPen, Qt, QTransform
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsRectItem, QGraphicsScene, QGraphicsView
 
@@ -10,6 +12,7 @@ from jAGFx.property import TSProperty
 
 class GraphicsView(QGraphicsView):
     OnBoxCreated: Signal = Signal(QRectF)
+    Invoke: Signal = Signal(str, object, object)
 
     def __init__(self, parent=None):
         lScene: QGraphicsScene = QGraphicsScene(parent)
@@ -22,6 +25,15 @@ class GraphicsView(QGraphicsView):
         self._isDrawing: bool = False
 
         self._drawingPen: QPen = QPen(Qt.GlobalColor.green, 3, Qt.PenStyle.DotLine)
+
+        def _invoke(methodName: str, args, kwargs):
+                method = getattr(self, methodName)
+                if callable(method):
+                    return method(*args, **kwargs)
+
+                raise TypeError(f"{methodName} is not callable.")
+
+        self.Invoke.connect(_invoke)
 
     def mousePressEvent(self, event: QMouseEvent):
         if event.button() != Qt.MouseButton.LeftButton or not self.DrawingEnabled:
@@ -82,3 +94,17 @@ class GraphicsView(QGraphicsView):
 
     def setDrawingPen(self, color: QColor, lineWidth: int = 2, style: Qt.PenStyle = Qt.PenStyle.DotLine):
         self._drawingPen = QPen(color, lineWidth, style)
+
+    @property
+    def InvokeRequired(self) -> bool:
+        return QThread.currentThread() != QCoreApplication.instance().thread()
+
+    def invoke(self, *args, **kwargs):
+        frame = inspect.currentframe()
+        caller_frame = frame.f_back if frame else None
+        method_name = caller_frame.f_code.co_name if caller_frame else None
+
+        if not method_name or not hasattr(self, method_name):
+            raise AttributeError("No current method set or method does not exist.")
+
+        self.Invoke.emit(method_name, args, kwargs)

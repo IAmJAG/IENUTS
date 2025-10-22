@@ -44,12 +44,20 @@ def warning(message: str | tuple | list | dict):
 # ERROR
 @OverloadDispatcher
 def error(message: str | tuple | list | dict):
-    log(message=message, level=ERROR, frame=currentframe())
+    frame = currentframe()
+    log(message=message, level=ERROR, frame=frame)
 
 
 @error.overload
 def error(message: str | tuple | list | dict, err: Exception):
-    log(message=message, level=ERROR, err=err, frame=currentframe())
+    frame = currentframe()
+    log(message=message, level=ERROR, err=err, frame=frame)
+    if err:
+        ExitOnError(err)
+
+@error.overload
+def error(message: str | tuple | list | dict, err: Exception, frame):
+    log(message=message, level=ERROR, err=err, frame=frame)
     if err:
         ExitOnError(err)
 

@@ -14,13 +14,13 @@ def main(args: list = sys.argv):
         try:
             lAppIndex = args.index("--launch")
             lAppLaunch = args[lAppIndex + 1]
-            print(f"Identified module {lAppLaunch}")
+            debug(f"[dashboard]: Identified module to launch: {lAppLaunch}")
 
         except (ValueError, IndexError):
-            print(f"Error on arguments {args}")
+            debug(f"Error on arguments {args}")
 
         except OSError as e:
-            print(f"Error launching application as separate process: {e}")
+            debug(f"Error launching application as separate process: {e}")
             return
 
     if lAppLaunch == "test":
@@ -33,17 +33,17 @@ def main(args: list = sys.argv):
             subprocess.Popen(lCmd)
 
         except Exception as e:
-            print(f"Failed to load tes': {e}")
+            debug(f"Failed to load tes': {e}")
             return
 
 
     else:
         try:
             lModule = importlib.import_module(f"{lAppLaunch}.main")
-            print(f"Module {lAppLaunch}.main loaded")
+            debug(f"[dashboard]: Module {lAppLaunch}.main loaded")
 
         except Exception as e:
-            print(f"Failed to load dashboard from '{lAppLaunch}': {e}")
+            error(f"Failed to load dashboard from '{lAppLaunch}': {e}", e)
             return
 
         lExitCode = lModule.main()

@@ -7,6 +7,7 @@ from cv2 import CAP_PROP_FPS, CAP_PROP_FRAME_COUNT, CAP_PROP_POS_FRAMES, VideoCa
 from numpy import ndarray
 
 # ==================================================================================
+from jAGFx.exceptions import jAGException
 from jAGFx.logger import debug
 from jAGFx.serializer import Serialisable
 from jAGFx.signal import Signal
@@ -33,6 +34,8 @@ class VideoThread(Streamer):
         self._seekRequest: int = -1
         self._playbackState: ePlaybackState = ePlaybackState.STOPPED
         self._mediaState: eMediaState = eMediaState.UNLOADED
+        self._playbackSpeed: float = 1.0
+        self._targetFrameTime: float = 0.0
 
         # region [CACHE]
         self._cache: dict[int, ndarray] = {}
@@ -51,9 +54,13 @@ class VideoThread(Streamer):
         self._mediLock: RLock = RLock()
         self._cacheLock: RLock = RLock()
         self._frameTimeLock: RLock = RLock()
+        self._speedLock: RLock = RLock()
         # endregion
 
-    def _getFrame(self, position: int = -1):
+    def updateCurrentFrame(self):
+        raise jAGException("Current frame is being managed at _setNextFrame")
+
+    def _getFrame(self, position: int = -1)-> ndarray:
         lFrame: ndarray = None
         lRet: bool = False
         lSeekTime: float = 0.0
@@ -76,15 +83,15 @@ class VideoThread(Streamer):
                 lRet, lFrame = self._vcap.read()
                 lReadTime = (monotonic() * 1000) - lStartRead
 
+                # Track seek/read times (only non-zero values)
+                if lSeekTime > 0 or lReadTime > 0:
+                    self._updateAverageSeekReadTime(lSeekTime, lReadTime)
+
         lFrame = lFrame if lRet else None
         lFrame = None if lFrame is not None and lFrame.ndim == 0 else lFrame
 
         # Track seek/read times and cache frame (if enabled)
         if self._cacheOptions.IsEnabled:
-            # Track seek/read times (only non-zero values)
-            if lSeekTime > 0 or lReadTime > 0:
-                self._updateAverageSeekReadTime(lSeekTime, lReadTime)
-
             # Cache the frame if retrieved
             if lFrame is not None and position >= 0:
                 self.AddToCache(position, lFrame)
@@ -92,10 +99,9 @@ class VideoThread(Streamer):
         return lFrame
 
     def _setNextFrame(self):
-        with self._currentLock:
-            self._currentFrame = self.NextFrame
+        self.CurrentFrame = self.NextFrame
 
-        if self.PlaybackState & ePlaybackState.BACKWARD:
+        if self.PlaybackState & ePlaybackState.BACKWARD == ePlaybackState.BACKWARD:
             self.NextFrame -= 1
 
         else:
@@ -103,10 +109,11 @@ class VideoThread(Streamer):
 
     def run(self) -> None:
         lStartTime = monotonic() * 1000
+        debug("[VideoThread]: started")
 
         def _xGetFrame() -> ndarray:
             nonlocal lStartTime
-            lFrame: ndarray
+            lFrame: ndarray = None
             try:
                 if self.IsSeeking:
                     lFrame = self._getFrame(self.SeekRequest)
@@ -115,7 +122,7 @@ class VideoThread(Streamer):
 
                 else:
                     if self.PlaybackState & ePlaybackState.PLAYING:
-                        lFrame = self._getFrame()
+                        lFrame = self._getFrame(self.NextFrame)
                         self._setNextFrame()
 
                         if self.NextFrame >= self.MediaInfo.FrameCount:
@@ -125,14 +132,18 @@ class VideoThread(Streamer):
                                 self.ResetFrameId()
                                 self.PlaybackState = ePlaybackState.STOPPED
 
-                lTimeEllapsed: float = (monotonic() * 1000) - lStartTime
-                lTimeLeft = (self.MediaInfo.getEstimatedDelay() * 1000) - lTimeEllapsed
-                with self._frameTimeLock:
-                    self._frameTimeTimeLeft = lTimeLeft
+                # Precise timing with target timestamps
+                if self._targetFrameTime == 0.0:
+                    self._targetFrameTime = monotonic()
 
-                if lTimeLeft > 0:
-                    lSleepDuration = max(0.0, lTimeLeft / 1000)
-                    sleep(lSleepDuration)
+                # Calculate frame interval based on speed
+                lFrameInterval = self.MediaInfo.getEstimatedDelay(self.PlaybackSpeed)
+                self._targetFrameTime += lFrameInterval
+
+                # Sleep until target time
+                lCurrentTime = monotonic()
+                lSleepDuration = max(0.0, self._targetFrameTime - lCurrentTime)
+                sleep(lSleepDuration)
 
                 lStartTime = monotonic() * 1000
 
@@ -202,6 +213,17 @@ class VideoThread(Streamer):
             if lPMediaState != value:
                 self.OnMediaStateChanged.emit(self._mediaState)
 
+    @property
+    def PlaybackSpeed(self) -> float:
+        with self._speedLock:
+            return self._playbackSpeed
+
+    def setPlaybackSpeed(self, speed: float):
+        with self._speedLock:
+            self._playbackSpeed = max(0.1, speed)  # Minimum 0.1x speed
+            # Reset timing when speed changes
+            self._targetFrameTime = monotonic()
+
 
     def EnableCache(self):
         if not self._cacheOptions.IsEnabled:
@@ -219,7 +241,7 @@ class VideoThread(Streamer):
     def pause(self):
         self.PlaybackState = ePlaybackState.PAUSED
 
-    def stop(self):
+    def StopPlayback(self):
         self.PlaybackState = ePlaybackState.STOPPED
 
     def setVideoFile(self, filePath: str):
@@ -240,18 +262,21 @@ class VideoThread(Streamer):
             lFirstFrame: ndarray = self._getFrame(0)
             if lFirstFrame is not None:
                 self._setNextFrame()
-                self.OnFrame.emit(lFirstFrame, 0)
                 self.MediaState = eMediaState.LOADED
+                self.OnFrame.emit(lFirstFrame, 0)
 
             if not self.is_alive():
-                self.start()
                 if self._cacheOptions.IsEnabled:
                     self._startCacheTimer()
+
+                self.start()
 
     def seek(self, frameIndex: int):
         if 0 <= frameIndex < self.MediaInfo.FrameCount:
             with self._seekLock:
                 self._seekRequest = frameIndex
+                # Reset timing on seek
+                self._targetFrameTime = monotonic()
 
     def GetCachedFrame(self, frameIndex: int) -> ndarray | None:
         with self._cacheLock:
@@ -356,11 +381,11 @@ class VideoThread(Streamer):
             return
 
         def _cacheTimerLoop():
-            while self.IsRunning and self._cacheOptions.IsEnabled:
+            while self.MediaState == eMediaState.LOADED and self._cacheOptions.IsEnabled:
                 with self._frameTimeLock:
-                    lFrameTimeTimeLeft = self._frameTimeTimeLeft
-                if lFrameTimeTimeLeft > self._averageSeekReadTime:
-                    self.UpdateCache()
+                    if self._frameTimeTimeLeft > self._averageSeekReadTime:
+                        self.UpdateCache()
+
                 sleep(self._cacheOptions.TimerInterval / 1000)
 
         debug("starting cache timer")
@@ -371,7 +396,7 @@ class VideoThread(Streamer):
     def _stopCache(self):
         # Stop cache timer
         if self._cacheTimer and self._cacheTimer.is_alive():
-            self._cacheTimer.join()
+            self._cacheTimer.join(0.001)
 
         self._cacheTimer = None  # Daemon thread will stop with main thread
 

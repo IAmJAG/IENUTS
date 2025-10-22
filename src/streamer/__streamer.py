@@ -1,6 +1,7 @@
 # ==================================================================================
-import ctypes
-import inspect
+import weakref
+
+# ==================================================================================
 from collections import deque
 from threading import RLock, Thread
 
@@ -11,11 +12,14 @@ from time import sleep, time
 from numpy import ndarray
 
 # ==================================================================================
+from jAGFx.logger import debug
 from jAGFx.signal import Signal
+from utilities import threadRaiseAsync
 
 # ==================================================================================
-from ..utilities import threadRaiseAsync
 from .__streamerOptions import StreamerOptions
+
+CMAX_FRAME: int = 1000
 
 
 class Streamer(Thread):
@@ -38,16 +42,19 @@ class Streamer(Thread):
         self._optionsLock: RLock = RLock()
         self._currentLock: RLock = RLock()
 
-        def _updateFPS(ndarray):
-            lCurrentTime = time()
-            self._timedFrame.append(lCurrentTime)
-            lCutoff = lCurrentTime - self.Options.FPSTimeRange
-            while self._timedFrame and self._timedFrame[0] < lCutoff:
-                self._timedFrame.popleft()
+        self.OnFrame.connect(self._updateFPS)
 
-        self.OnFrame.connect(_updateFPS)
+        weakref.ref(self, lambda: self.Stop(0.01))
+
+    def _updateFPS(self, rawimage: ndarray, frmid: int):
+        lCurrentTime = time()
+        self._timedFrame.append(lCurrentTime)
+        lCutoff = lCurrentTime - self.Options.FPSTimeRange
+        while self._timedFrame and self._timedFrame[0] < lCutoff:
+            self._timedFrame.popleft()
 
     def GetFrame(self) -> ndarray:
+        self.updateCurrentFrame()
         raise NotImplementedError()
 
     def run(self) -> None:
@@ -56,20 +63,24 @@ class Streamer(Thread):
 
         lErrors: int = 0
         lSuccesses: int = 0
-
         try:
-            while self.IsRunning:
+            while self.IsRunning and weakref.ref(self):
                 try:
-                    lFrame = self.GetFrame()
+                    lFrame: ndarray = self.GetFrame()
 
                     # Emit only if frame is not None
-                    if lFrame: self.OnFrame(lFrame)
+                    if lFrame is not None:
+                        self.OnFrame.emit(lFrame, self.CurrentFrame)
 
                     lSuccesses += 1
                     if lSuccesses >= self.Options.SuccessThreshold:
                         lErrors = 0
                         lSuccesses = 0
+                        self._errorTimes.clear()
 
+                except KeyboardInterrupt:
+                    with self._runningLock:
+                        self._isrunning: bool = False
 
                 except Exception as ex:
                     self.OnError.emit(ex)
@@ -77,8 +88,11 @@ class Streamer(Thread):
                     lErrors += 1
                     lSuccesses = 0
                     lCurrentTime = time()
+
+                    if len(self._errorTimes) == 0:
+                        lCutoff = lCurrentTime - self.Options.ErrorTimeWindow
+
                     self._errorTimes.append(lCurrentTime)
-                    lCutoff = lCurrentTime - self.Options.ErrorTimeWindow
                     while self._errorTimes and self._errorTimes[0] < lCutoff:
                         self._errorTimes.popleft()
 
@@ -89,17 +103,27 @@ class Streamer(Thread):
             raise ex
 
         finally:
+            self.Stop(0.0001)
             with self._runningLock:
                 self._isrunning: bool = False
+
+    def updateCurrentFrame(self):
+        self.CurrentFrame += 1
+        if self.CurrentFrame > CMAX_FRAME:
+            self.ResetFrameId()
 
     @property
     def CurrentFrame(self) -> int:
         with self._currentLock:
             return self._currentFrame
 
-    def ResetFrameId(self):
+    @CurrentFrame.setter
+    def CurrentFrame(self, value: int):
         with self._currentLock:
-            self._currentFrame = 0
+            self._currentFrame = value
+
+    def ResetFrameId(self):
+        self.CurrentFrame = 0
 
     @property
     def IsRunning(self) -> bool:
@@ -126,7 +150,12 @@ class Streamer(Thread):
         with self._runningLock:
             self._isrunning = False
 
+
         if timeout >= 0:
-            if self.is_alive():
-                sleep(timeout)
-                threadRaiseAsync(self.ident, SystemExit)
+            lOldIdent = self.ident
+
+            sleep(timeout)
+            # only attempt to raise if the thread is still alive and the ident didn't change
+            if not (self.is_alive() and lOldIdent is not None and self.ident == lOldIdent):
+                return
+            threadRaiseAsync(self.ident, SystemExit)

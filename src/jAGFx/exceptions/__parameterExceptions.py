@@ -1,10 +1,14 @@
+# ==================================================================================
 from inspect import currentframe
 from typing import Any
 
+# ==================================================================================
 from .__exceptionBase import jAGException
 
 
 class invalidParameterTypeException(jAGException):
+    """Exception raised when a parameter has an incorrect type."""
+
     def __init__(
         self,
         expected: type,
@@ -25,6 +29,8 @@ class invalidParameterTypeException(jAGException):
 
 
 class parameterRequiredException(jAGException):
+    """Exception raised when a required parameter is missing or None."""
+
     def __init__(
         self,
         name: str,
@@ -33,11 +39,11 @@ class parameterRequiredException(jAGException):
         *args: list[Any],
         **kwargs: dict[str, Any],
     ) -> None:
-        lBaseMessage = f"Parameter required. Expecting {name} got none"
-        lFinalMesage = lBaseMessage
+        lBaseMessage = f"Parameter required. Expecting {name} got None"
+        lFinalMessage = lBaseMessage
         if message is not None:
-            lFinalMesage = [lBaseMessage, lBaseMessage]
+            lFinalMessage = [lBaseMessage, message]
 
         super().__init__(
-            lFinalMesage, *args, inner=inner, frame=currentframe().f_back, **kwargs
+            lFinalMessage, *args, inner=inner, frame=currentframe().f_back, **kwargs
         )

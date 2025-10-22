@@ -1,3 +1,4 @@
+# ==================================================================================
 import inspect
 import os
 
@@ -12,7 +13,8 @@ from PySide6.QtWidgets import QBoxLayout, QMainWindow, QSpacerItem, QWidget
 # ==================================================================================
 from jAGFx.configuration import ApplicationConfiguration, iConfiguration
 from jAGFx.dependencyInjection import Provider
-from jAGFx.exceptions import jAGException
+from jAGFx.exceptions import ModuleException, jAGException
+from jAGFx.logger import debug, error
 from jAGFx.overload import OverloadDispatcher
 from jAGFx.utilities.io import getICONPath
 
@@ -55,16 +57,18 @@ class FormBase(QMainWindow, iComponent):
             self.Invoke.connect(_invoke)
 
         except Exception as ex:
-            raise jAGException(
-                f"Error in {__name__}{self.__class__.__name__}.__init__", ex
-            ) from ex
+            raise ModuleException(module=__name__, klass=self.__class__.__name__, member="__init__", inner=ex) from ex
 
     def Load(self): ...
 
     def setupUI(self) -> None:
-        self._central: Central = Central()
-        self.setCentralWidget(self._central)
-        self.restoreWindowsState()
+        try:
+            self._central: Central = Central()
+            self.setCentralWidget(self._central)
+            self.restoreWindowsState()
+
+        except Exception as ex:
+            raise ModuleException(module=__name__, klass=self.__class__.__name__, member="__init__", inner=ex) from ex
 
     @property
     def Orientation(self) -> QBoxLayout.Direction:
@@ -133,13 +137,30 @@ class FormBase(QMainWindow, iComponent):
     def CleanUp(self): ...
 
     def closeEvent(self, event):
-        self.CleanUp()
-        self.saveWindowState()
-        return super().closeEvent(event)
+        lCleanSuccessful: bool = False
+        try:
+            debug(f"{self.FQN}: Clean up")
+            self.CleanUp()
+            lCleanSuccessful = True
+
+            debug(f"{self.FQN}: Saving window state")
+            self.saveWindowState()
+
+        except Exception as ex:
+            raise ModuleException(
+                message=f"{self.FQN}: While executing close event, cleanup is {'' if lCleanSuccessful else '"NOT"'}.",
+                module=__name__,
+                klass=self.__class__.__name__,
+                member="__init__",
+                inner=ex,
+            ) from ex
+
+        finally:
+            return super().closeEvent(event)
 
     @property
     def FQN(self) -> str:
-        return "[ROOT]"
+        return f"[{self.ApplicationId}]"
 
     @property
     def Settings(self) -> QSettings:
@@ -236,6 +257,7 @@ class FormBase(QMainWindow, iComponent):
         frame = inspect.currentframe()
         caller_frame = frame.f_back if frame else None
         method_name = caller_frame.f_code.co_name if caller_frame else None
+
         if not method_name or not hasattr(self, method_name):
             raise AttributeError("No current method set or method does not exist.")
 
