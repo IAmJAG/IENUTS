@@ -1,11 +1,17 @@
+# ==================================================================================
 import os
+
+# ==================================================================================
 from json import dump, load
 
+# ==================================================================================
+from PySide6.QtGui import QIcon, QImage, QPixmap
+
+# ==================================================================================
 from jAGFx.configuration import ApplicationConfiguration, iConfiguration
 from jAGFx.dependencyInjection import Provider
 from jAGFx.overload import OverloadDispatcher
-from jAGFx.utilities.io import getAssetPath, getConfigPath, getICONPath
-from PySide6.QtGui import QIcon, QPixmap
+from jAGFx.utilities.io import getConfigPath
 
 __all__ = ["GetImage", "LoadCFG", "SaveCFG", "newIcon"]
 
@@ -41,7 +47,7 @@ def _getImagePath(imgfile: str) -> str:
 
 
 @OverloadDispatcher
-def newIcon(path: str = "application-default-icon") -> QIcon:
+def newIcon(path: str = "application-default-icon", disable: bool = False) -> QIcon:
     def _getIconFromPath(iconName: str) -> QIcon:
         if os.path.exists(iconName):
             return QIcon(iconName)
@@ -57,14 +63,22 @@ def newIcon(path: str = "application-default-icon") -> QIcon:
     icon = _getIconFromPath(path)
 
     if icon.isNull():
-        raise Exception(f"Failed to load icon: {path}")
-        # return QIcon.fromTheme("application-default-icon")
+        return QIcon.fromTheme("application-default-icon")
+
+    if disable:
+        pixmap = icon.pixmap(icon.actualSize(icon.availableSizes()[0]))
+        grayscale = pixmap.toImage().convertToFormat(QImage.Format.Format_Grayscale8)
+        icon = QIcon(QPixmap.fromImage(grayscale))
 
     return icon
 
 
 @newIcon.overload
-def newIcon(icon: QIcon) -> QIcon:
+def newIcon(icon: QIcon, disable: bool) -> QIcon:
+    if disable:
+        pixmap = icon.pixmap(icon.actualSize(icon.availableSizes()[0]))
+        grayscale = pixmap.toImage().convertToFormat(QImage.Format.Format_Grayscale8)
+        return QIcon(QPixmap.fromImage(grayscale))
     return icon
 
 

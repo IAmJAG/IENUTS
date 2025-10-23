@@ -1,7 +1,10 @@
-from jAGFx.utilities.names import getRandomNames
+# ==================================================================================
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QBoxLayout, QLabel, QPushButton, QWidget
+
+# ==================================================================================
+from jAGFx.utilities.names import getRandomNames
 
 
 def InitializeLayout(direction: QBoxLayout.Direction, parent: QWidget = None):
@@ -24,9 +27,9 @@ def CreateWidget(objectName: str = ""):
     return lWidget
 
 
-def CreateButton(caption: str = "", iconPath: str = "", iconSize: int = 32) -> QPushButton:
+def CreateButton(caption: str, icon: QIcon, iconSize: int = 32) -> QPushButton:
     lButton: QPushButton = QPushButton(caption)
-    lButton.setIcon(QIcon(iconPath))
+    lButton.setIcon(QIcon(icon))
     lButton.setIconSize(QSize(iconSize, iconSize))
     lButton.setFlat(True)
     return lButton

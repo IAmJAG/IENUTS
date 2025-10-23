@@ -12,7 +12,6 @@ from time import sleep, time
 from numpy import ndarray
 
 # ==================================================================================
-from jAGFx.logger import debug
 from jAGFx.signal import Signal
 from utilities import threadRaiseAsync
 

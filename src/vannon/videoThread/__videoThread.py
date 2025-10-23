@@ -3,13 +3,12 @@ from threading import RLock, Thread
 from time import monotonic, sleep, time
 
 # ==================================================================================
-from cv2 import CAP_PROP_FPS, CAP_PROP_FRAME_COUNT, CAP_PROP_POS_FRAMES, VideoCapture
+from cv2 import CAP_PROP_POS_FRAMES, VideoCapture
 from numpy import ndarray
 
 # ==================================================================================
 from jAGFx.exceptions import jAGException
 from jAGFx.logger import debug
-from jAGFx.serializer import Serialisable
 from jAGFx.signal import Signal
 from streamer import Streamer, StreamerOptions
 
@@ -30,7 +29,7 @@ class VideoThread(Streamer):
         self._vcap: VideoCapture = None
         self._mediaInfo: MediaInfo = None
 
-        self._nextFrame: int = -1
+        self._nextFrame: int = 0
         self._seekRequest: int = -1
         self._playbackState: ePlaybackState = ePlaybackState.STOPPED
         self._mediaState: eMediaState = eMediaState.UNLOADED
@@ -98,7 +97,9 @@ class VideoThread(Streamer):
 
         return lFrame
 
-    def _setNextFrame(self):
+    def _setNextFrame(self, current: int = -1):
+        self.NextFrame = current if current >= 0 else self.NextFrame
+
         self.CurrentFrame = self.NextFrame
 
         if self.PlaybackState & ePlaybackState.BACKWARD == ePlaybackState.BACKWARD:
@@ -117,8 +118,10 @@ class VideoThread(Streamer):
             try:
                 if self.IsSeeking:
                     lFrame = self._getFrame(self.SeekRequest)
-                    self._setNextFrame()
+                    self._setNextFrame(self.SeekRequest)
                     self.SeekRequest = -1
+                    self._targetFrameTime = monotonic()
+                    return lFrame
 
                 else:
                     if self.PlaybackState & ePlaybackState.PLAYING:
@@ -159,6 +162,10 @@ class VideoThread(Streamer):
         return super().run()
 
     @property
+    def FPS(self):
+        return self.MediaInfo.FPS
+
+    @property
     def NextFrame(self) -> int:
         with self._nextLock:
             return self._nextFrame
@@ -166,7 +173,7 @@ class VideoThread(Streamer):
     @NextFrame.setter
     def NextFrame(self, value: int):
         with self._nextLock:
-            self._nextFrame = value
+            self._nextFrame = value if value >=0 else 0
 
     @property
     def MediaInfo(self) -> MediaInfo:
@@ -221,7 +228,6 @@ class VideoThread(Streamer):
     def setPlaybackSpeed(self, speed: float):
         with self._speedLock:
             self._playbackSpeed = max(0.1, speed)  # Minimum 0.1x speed
-            # Reset timing when speed changes
             self._targetFrameTime = monotonic()
 
 
@@ -241,7 +247,7 @@ class VideoThread(Streamer):
     def pause(self):
         self.PlaybackState = ePlaybackState.PAUSED
 
-    def StopPlayback(self):
+    def stopPlayback(self):
         self.PlaybackState = ePlaybackState.STOPPED
 
     def setVideoFile(self, filePath: str):
@@ -256,14 +262,16 @@ class VideoThread(Streamer):
             self.ClearCache()  # Clear cache when unloading media
             self._mediaInfo = MediaInfo(lVidCap, filePath)
             self._vcap = lVidCap
+            self.NextFrame = 0
 
             self.OnMediaLoaded.emit(self.MediaInfo)
 
-            lFirstFrame: ndarray = self._getFrame(0)
+            lFirstFrame: ndarray = self._getFrame(self.NextFrame)
             if lFirstFrame is not None:
-                self._setNextFrame()
                 self.MediaState = eMediaState.LOADED
-                self.OnFrame.emit(lFirstFrame, 0)
+                self._setNextFrame()
+                self.OnFrame.emit(lFirstFrame, self.CurrentFrame)
+
 
             if not self.is_alive():
                 if self._cacheOptions.IsEnabled:
@@ -307,7 +315,7 @@ class VideoThread(Streamer):
 
         # Determine priority direction
         lPriorityDirection = 1  # Default forward
-        if self.PlaybackState & ePlaybackState.BACKWARD:
+        if self.PlaybackState & ePlaybackState.BACKWARD == ePlaybackState.BACKWARD:
             lPriorityDirection = -1
 
         # Find next uncached frame in priority direction
@@ -318,6 +326,7 @@ class VideoThread(Streamer):
                 if lFrame not in self._cache:
                     lFrameToCache = lFrame
                     break
+
             if lFrameToCache == -1:
                 # No right frames, cache left
                 for lFrame in range(lCurrentFrame - 1, lStartFrame - 1, -1):
@@ -330,6 +339,7 @@ class VideoThread(Streamer):
                 if lFrame not in self._cache:
                     lFrameToCache = lFrame
                     break
+
             if lFrameToCache == -1:
                 # No left frames, cache right
                 for lFrame in range(lCurrentFrame + 1, lEndFrame + 1):

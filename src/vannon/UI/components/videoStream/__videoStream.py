@@ -17,9 +17,9 @@ from jAGUI.components.utilities import processMarker
 from utilities import NDArrayToPixmap, findContourRect
 
 # ==================================================================================
-from ...videoThread import VideoThread, ePlaybackState
-from .__graphicsView import GraphicsView
-from .graphicsItems import GIBoundingBox
+from ....videoThread import VideoThread, ePlaybackState
+from ..__graphicsView import GraphicsView
+from ..graphicsItems import GIBoundingBox
 
 AREA_TOLERANCE: int = 100
 POSI_TOLERANCE: int = 10

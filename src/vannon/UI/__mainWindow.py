@@ -1,8 +1,6 @@
 # ==================================================================================
-from time import sleep
 
 # ==================================================================================
-from PySide6.QtGui import QCloseEvent
 from PySide6.QtWidgets import QBoxLayout
 
 # ==================================================================================
@@ -12,7 +10,7 @@ from utilities.mwHelper import InitializeLayout
 
 # ==================================================================================
 from ..videoThread import VideoThread
-from .components import VideoStream
+from .components import PlaybackView
 
 
 @processMarker(True, True)
@@ -28,13 +26,10 @@ class MainWindow(ModernWindow):
         self._layout: QBoxLayout = lLayout
 
         lVT: VideoThread = VideoThread()
-        lVS: VideoStream = VideoStream(lVT)
+        lPV: PlaybackView = PlaybackView(lVT)
 
-        self.Layout.addWidget(lVS)
+        self.Layout.addWidget(lPV)
         # self.Layout.addStretch()
-
-        lVT.OnMediaLoaded.connect(lambda mi: lVT.play())
-        lVT.setVideoFile("D:\\Training\\Data\\video\\buying_hp_postion.mp4")
 
         def _cleanUp():
             nonlocal lVT

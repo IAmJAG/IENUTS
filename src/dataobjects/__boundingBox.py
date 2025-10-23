@@ -12,6 +12,18 @@ from jAGFx.serializer import Serialisable
 
 class BoundingBox(QRectF, Serialisable):
     @OverloadDispatcher
+    def __init__(self, klass: str, rect: QRectF, id: str) -> None:
+        super().__init__(rect)
+        self._id: str = id or str(uuid4())
+        self._class = klass
+        self._origin = False
+        self.Properties.extend(["X", "Y", "W", "H", "Class", "Id", "Origin"])
+
+    @__init__.overload
+    def __init__(self, klass: str, rect: QRectF) -> None:
+        self.__init__(klass, rect, str(uuid4()))
+
+    @__init__.overload
     def __init__(self, dct: dict) -> None:
         lModule: list[str] = self.__module__.split(".")
         if lModule[len(lModule) - 1].startswith("__"):
@@ -32,14 +44,6 @@ class BoundingBox(QRectF, Serialisable):
 
         raise Exception(f"Invalid entity class, expecting a {lModule}.{type(self).__name__}")
 
-
-    @__init__.overload
-    def __init__(self, klass: str, rect: QRectF, id: str = None) -> None:
-        super().__init__(rect)
-        self._id: str = id or str(uuid4())
-        self._class = klass
-        self._origin = False
-        self.Properties.extend(["X", "Y", "W", "H", "Class", "Id", "Origin"])
 
     @property
     def Class(self) -> str:
